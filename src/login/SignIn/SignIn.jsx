@@ -35,12 +35,7 @@ const SignIn = () => {
                 <Input name='name' size="lg" label="Name" />
                 </div>
                 
-                <input 
-                required
-                name='image'
-                accept='image/*'
-                type="file" 
-                className="file-input file-input-ghost max-w-xs w-72 mt-3 text-sm border-0.30 border-gray-400 max-h-10" />
+            
                 
                 
                 <div className='w-72 mt-3'>
@@ -54,7 +49,9 @@ const SignIn = () => {
                 <Link>
                 <div className='text-blue-800 text-start text-sm mb-'>Forget Your Password?</div>
                 </Link>
-                <button  className='buttons'>Sign Up</button>
+                <Link to='/signUpContact'>
+                <button className='buttons'>Next</button>
+                </Link>
                 
             </form>
         </div>
