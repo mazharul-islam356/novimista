@@ -279,7 +279,7 @@ body{
 
 .home-section{
   position: relative;
-  background-color: var(--color-body);
+  background-color: white;
   min-height: 100vh;
   top:0;
   left:78px;

@@ -73,7 +73,7 @@ const SignIn = () => {
                 </Link>
              <button className='buttons'>Sign In</button>
 
-            <Link to='/dashBoard'>
+            <Link to='/dashBoardSlider'>
             <button className='buttons'>Dashboard</button>
             </Link>
 

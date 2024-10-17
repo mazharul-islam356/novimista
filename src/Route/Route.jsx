@@ -3,7 +3,9 @@ import SignIn from "../login/SignIn/SignIn";
 import SignUpContact from "../SignUp/SignUpContact";
 import SignUpPass from "../SignUp/signUpPass/SignUpPass";
 import OtpPage from "../SignUp/OTP/OtpPage";
-import DashBoard from "../DashBoard/DashBoard";
+import DashBoardSlider from "../DashBoard/DashBoardSlider";
+import Employee from "../DashBoard/Employee/Employee";
+import AdminDashBoard from "../DashBoard/AdminDashBoard";
 
 
 
@@ -25,8 +27,18 @@ export const router = createBrowserRouter([
       element:<OtpPage></OtpPage>
     },
     {
-      path:'/dashBoard',
-      element:<DashBoard></DashBoard>
+      path:'/dashBoardSlider',
+      element:<DashBoardSlider></DashBoardSlider>,
+      children:[
+        {
+          path:'dashBoard',
+          element:<AdminDashBoard></AdminDashBoard>
+        },
+        {
+          path:'employee',
+          element:<Employee></Employee>
+        }
+      ]
     },
     
   ])

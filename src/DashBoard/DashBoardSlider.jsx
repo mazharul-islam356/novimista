@@ -1,24 +1,32 @@
 import { useEffect, useState } from 'react';
-import './dashBoard.css'
+import './dashBoardSlider.css'
 import profile from '../assets/profile.jpg';
+import { Link, Outlet } from 'react-router-dom';
 
 
-const DashBoard = () => {
+const DashBoardSlider = () => {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [dashBoardOpen, setdashBoardOpen] = useState(false);
 
   useEffect(() => {
     const closeBtn = document.querySelector("#btn");
-    const searchBtn = document.querySelector(".bx-search");
+    
 
     closeBtn.addEventListener("click", toggleSidebar);
-    searchBtn.addEventListener("click", toggleSidebar);
+   
 
     return () => {
       closeBtn.removeEventListener("click", toggleSidebar);
-      searchBtn.removeEventListener("click", toggleSidebar);
+      
     };
   }, []);
+
+  
+    const handleDashBoardOpen = () => {
+      console.log('clicked');
+    }
+  
 
   const toggleSidebar = () => {
     setIsOpen(prevState => !prevState);
@@ -47,25 +55,30 @@ const DashBoard = () => {
     <i className="bx bx-menu" id="btn"></i>
   </div>
   <ul className="nav-list">
-    <li>
-      <i className="bx bx-search"></i>
-      <input type="text" placeholder="Search..." />
-      <span className="tooltip">Search</span>
-    </li>
-    <li>
-      <a href="#">
+    
+
+    <li onClick={handleDashBoardOpen}>
+      <Link to='dashBoard'>
         <i className="bx bx-grid-alt"></i>
         <span className="link_name">Dashboard</span>
-      </a>
+        <i className='bx bx-chevron-down ml-4' ></i>
+      </Link>
+      <ul className='bg-white pl-16 py-1 hidden hover:block'>
+        <li>Web design</li>
+        <li>Web design</li>
+        <li>Web design</li>
+      </ul>
       <span className="tooltip">Dashboard</span>
     </li>
+
     <li>
-      <a href="#">
+      <Link to='employee'>
         <i className="bx bx-user"></i>
-        <span className="link_name">User</span>
-      </a>
-      <span className="tooltip">User</span>
+        <span className="link_name">Employee</span>
+      </Link>
+      <span className="tooltip">Employee</span>
     </li>
+
     <li>
       <a href="#">
         <i className="bx bx-chat"></i>
@@ -73,6 +86,7 @@ const DashBoard = () => {
       </a>
       <span className="tooltip">Message</span>
     </li>
+
     <li>
       <a href="#">
         <i className="bx bx-pie-chart-alt-2"></i>
@@ -80,6 +94,7 @@ const DashBoard = () => {
       </a>
       <span className="tooltip">Analytics</span>
     </li>
+
     <li>
       <a href="#">
         <i className="bx bx-folder"></i>
@@ -87,6 +102,7 @@ const DashBoard = () => {
       </a>
       <span className="tooltip">File Manager</span>
     </li>
+    
     <li>
       <a href="#">
         <i className="bx bx-cart-alt"></i>
@@ -114,11 +130,11 @@ const DashBoard = () => {
   </ul>
 </div>
 <section className="home-section">
-  <div className="text">Dashboard</div>
+  <Outlet></Outlet>
 </section>
 
         </div>
     );
 };
 
-export default DashBoard;
+export default DashBoardSlider;
