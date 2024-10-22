@@ -4,8 +4,11 @@ import SignUpContact from "../SignUp/SignUpContact";
 import SignUpPass from "../SignUp/signUpPass/SignUpPass";
 import OtpPage from "../SignUp/OTP/OtpPage";
 import DashBoardSlider from "../DashBoard/DashBoardSlider";
-import Employee from "../DashBoard/Employee/Employee";
 import AdminDashBoard from "../DashBoard/AdminDashBoard";
+import LeaveApplication from "../Leave/LeaveApplication";
+import EmployeeDashBoard from "../DashBoard/Employee/EmployeeDashBoard";
+import EmployeeProfile from "../DashBoard/Employee/EmployeeProfile";
+import LeaveApplicationList from "../Leave/LeaveApplicationList";
 
 
 
@@ -27,16 +30,28 @@ export const router = createBrowserRouter([
       element:<OtpPage></OtpPage>
     },
     {
-      path:'/dashBoardSlider',
+      path:'/dashBoard',
       element:<DashBoardSlider></DashBoardSlider>,
       children:[
         {
-          path:'dashBoard',
+          path:'adminDashBoard',
           element:<AdminDashBoard></AdminDashBoard>
         },
         {
-          path:'employee',
-          element:<Employee></Employee>
+          path:'employeeDashBoard',
+          element:<EmployeeDashBoard></EmployeeDashBoard>
+        },
+        {
+          path:'leaveApplication',
+          element:<LeaveApplication></LeaveApplication>
+        },
+        {
+          path:'leaveApplicationList',
+          element:<LeaveApplicationList></LeaveApplicationList>
+        },
+        {
+          path:'employeeProfile',
+          element:<EmployeeProfile></EmployeeProfile>
         }
       ]
     },

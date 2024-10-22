@@ -20,6 +20,30 @@ body{
   min-height: 100vh;
 }
 
+
+/* dashboard dropdown */
+.sub-menu{
+  font-size: 14px;
+  padding: 6px 6px 14px 70px;
+  margin-top: -10px;
+  background-color: white;
+  /* display: none; */
+}
+
+
+
+.sidebar.open .sub-catagory{
+
+display: flex;
+}
+.sidebar.closee .sub-catagory{
+display: none;
+}
+
+
+
+
+
 .sidebar{
   min-height: 100vh;
   width: 78px;
@@ -126,27 +150,7 @@ body{
   display: none;
 }
 
-.sidebar input{
-  font-size: 15px;
-  color: var(--color-white);
-  font-weight: 400;
-  outline: none;
-  height: 35px;
-  width: 35px;
-  border:none;
-  border-radius: 5px;
-  background-color: var(--color-second);
-  transition: all .5s ease;
-}
 
-.sidebar input::placeholder{
-  color:var(--color-light)
-}
-
-.sidebar.open input{
-  width: 100%;
-  padding: 0 20px 0 50px;
-}
 
 .sidebar .bx-search{
   position: absolute;
@@ -170,7 +174,7 @@ body{
   z-index: 12;
 }
 
-.sidebar li a::after{
+.sidebar li .a::after{
   content: "";
   position: absolute;
   width: 100%;
@@ -202,7 +206,7 @@ body{
 .sidebar li a:hover .link_name,
 .sidebar li a:hover i{
   transition: all 0.5s ease;
-  color:#ffba08
+  color:#a87903
 }
 
 .sidebar.open li a .link_name{

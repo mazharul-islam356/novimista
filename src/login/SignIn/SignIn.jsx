@@ -52,8 +52,6 @@ const SignIn = () => {
         </div>
 
 
-
-
              <div className="form-container sign-in">
 
 
@@ -73,7 +71,7 @@ const SignIn = () => {
                 </Link>
              <button className='buttons'>Sign In</button>
 
-            <Link to='/dashBoardSlider'>
+            <Link to='dashBoard/adminDashBoard'>
             <button className='buttons'>Dashboard</button>
             </Link>
 
