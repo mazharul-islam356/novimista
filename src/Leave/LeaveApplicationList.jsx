@@ -1,8 +1,7 @@
 import { FaClipboardList } from "react-icons/fa";
-import { Card, Dialog, DialogFooter, Option, Select,  Typography } from "@material-tailwind/react";
+import { Button, Card, Dialog, DialogFooter, Option, Select,  Typography } from "@material-tailwind/react";
 import { BiFilterAlt } from "react-icons/bi";
 import { useEffect, useState } from "react";
-import { Button } from "semantic-ui-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
