@@ -1,12 +1,14 @@
 import { FaClipboardList } from "react-icons/fa";
-import { Card, Dialog, DialogBody, DialogFooter, DialogHeader, Input, Option, Select, Textarea, Typography } from "@material-tailwind/react";
-import { RiArrowUpDownFill } from "react-icons/ri";
+import { Card, Dialog, DialogFooter, Option, Select,  Typography } from "@material-tailwind/react";
 import { BiFilterAlt } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { Button } from "semantic-ui-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
+import { GrPowerReset } from "react-icons/gr";
+import { LiaHourglassEndSolid } from "react-icons/lia";
+import { useNavigate } from "react-router-dom";
 
 
 const LeaveApplicationList = () => {
@@ -21,6 +23,13 @@ const LeaveApplicationList = () => {
     }, []); 
     console.log(data);
       
+
+    const navigate = useNavigate();
+      
+
+    const handleRelod = () => {
+      navigate(0);
+    }
     
 
    
@@ -38,6 +47,9 @@ const handleOpen = () => setOpen(!open);
             <h2 className="text-2xl text-center font-semibold">Employee Leave Applicaton List (All)</h2>
             </div>
 
+
+            <iframe className="" src="https://lottiefiles.com/free-animation/facebook-logo-effect-Fe9dNHIz7F?color-palette=true"></iframe>
+
             <div className="flex gap-3 mt-8 justify-end pr-8">
             
 
@@ -48,7 +60,7 @@ const handleOpen = () => setOpen(!open);
     <BiFilterAlt className="text-xl text-gray-800" />
     <h1 className="text-gray-800 font-semibold text-center text-xl">Filter</h1>
     </div>
-    <div className="w-80">
+    <div className="w-80 mx-auto">
         <span className="text-black font-semibold">Leave type*</span>
       <Select label="Leave type">
         <Option>CL</Option>
@@ -57,7 +69,7 @@ const handleOpen = () => setOpen(!open);
       </Select>
     </div>
 
-    <div className="w-80 mt-2">
+    <div className="w-80 mx-auto mt-2">
         <span className="text-black font-semibold">Recommend*</span>
       <Select label="Recommend">
         <Option>Recommend</Option>
@@ -66,7 +78,7 @@ const handleOpen = () => setOpen(!open);
       </Select>
     </div>
 
-    <div className="w-80 mt-2">
+    <div className="w-80 mx-auto mt-2">
         <span className="text-black font-semibold">Approve*</span>
       <Select label="Approved">
         <Option>Approved</Option>
@@ -75,13 +87,13 @@ const handleOpen = () => setOpen(!open);
       </Select>
     </div>
 
-   <div className="flex justify-center items-center gap-3">
+   <div className="flex justify-center items-center gap-6 w-80 mx-auto">
     <div className="mt-3">
     <h5 className="font-semibold text-black">From:</h5>
    <div className="px-4 py-1  border-gray-400 border rounded-lg shadow-sm">
 
    <DatePicker
-   className="w-32"
+   className="w-28"
     showIcon
   selected={startDate} onChange={(date) => setStartDate(date)}
     />
@@ -92,7 +104,7 @@ const handleOpen = () => setOpen(!open);
    <div className="px-4 py-1  border-gray-400 border rounded-lg shadow-sm">
 
    <DatePicker
-   className="w-32"
+   className="w-28"
     showIcon
   selected={startDate} onChange={(date) => setStartDate(date)}
     />
@@ -100,9 +112,14 @@ const handleOpen = () => setOpen(!open);
     </div>
    </div>
 
-    <DialogFooter className="flex justify-center">
+    <DialogFooter className="flex justify-center gap-3">
 
-        <Button onClick={handleOpen} className="px-6 bg-orange-500 text-white py-2 mt-4 rounded-lg" color="blue">
+        <Button onClick={handleRelod} className="px-6 flex items-center gap-1 bg-red-500 text-white py-2 mt-4 rounded-lg" color="blue">
+        <GrPowerReset className="font-bold" />
+            Reset
+        </Button>
+        <Button onClick={handleOpen} className="px-6 flex items-center gap-1 bg-orange-500 text-white py-2 mt-4 rounded-lg" color="blue">
+        <LiaHourglassEndSolid className="text-xl"  />
             Apply
         </Button>
     </DialogFooter>
@@ -122,7 +139,7 @@ const handleOpen = () => setOpen(!open);
 
 
             {/* --------Table----- */}
-            <Card className="h-full px-7 w-full shadow-none mt-5">
+            <Card className="h-full px-7 w-full shadow-none mt-4">
       <table className="w-full min-w-max table-auto text-left">
         <thead>
 
@@ -146,10 +163,12 @@ const handleOpen = () => setOpen(!open);
 
         </thead>
         <tbody>
-          {data.map(({ company, leave_name, total_day,action_button }, index) => (
+          {data.map(({ company, leave_name, total_day,action_button }, index) => 
+          
+          (
             
-            <tr key={index} className="even:bg-blue-gray-50/50">
-              <td className="p-4">
+            <tr key={index} className="even:bg-blue-gray-50/50 ">
+              <td className="p-4 bg-blue-gray-50/50">
                 <Typography variant="small" color="blue-gray" className="font-normal">
                   {index+1}
                 </Typography>
@@ -159,7 +178,7 @@ const handleOpen = () => setOpen(!open);
                   {company}
                 </Typography>
               </td>
-              <td className="p-4">
+              <td className="p-4 bg-blue-gray-50/50">
                 <Typography variant="small" color="blue-gray" className="font-normal">
                   {leave_name}
                 </Typography>
@@ -169,7 +188,7 @@ const handleOpen = () => setOpen(!open);
                   {total_day}
                 </Typography>
               </td>
-              <td className="p-4">
+              <td className="p-4 bg-blue-gray-50/50">
                 <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
                   {action_button}
                 </Typography>

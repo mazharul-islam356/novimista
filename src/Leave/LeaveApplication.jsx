@@ -1,5 +1,5 @@
 import { Button, Input, Option, Select, Textarea } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaExchangeAlt } from "react-icons/fa";
@@ -52,18 +52,18 @@ const LeaveApplication = () => {
       ];
 
       const navigate = useNavigate();
-      
 
       const handleRelod = () => {
         navigate(0);
       }
+
 
     return (
         <div className="w-11/12 mx-auto mt-10">
 
             <div className="flex justify-center items-center gap-2">
             <i className='bx bxs-file-doc text-3xl'></i>
-            <h2 className="text-2xl text-center font-semibold"> Leave Applicaton</h2>
+            <h2 className="text-2xl text-center font-semibold">Leave Applicaton</h2>
             </div>
 
             <div>
